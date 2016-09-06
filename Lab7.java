@@ -27,10 +27,10 @@ public class Lab7 {
 			listNames(name);
 			System.out.println("Which student would you like to learn more about?");
 			try {
-				studentIndex = scanner.nextInt()-1;
-				System.out.println("Student " + (studentIndex+1) + " is " + name[studentIndex]);
+				studentIndex = scanner.nextInt() - 1;
+				System.out.println("Student " + (studentIndex + 1) + " is " + name[studentIndex]);
 
-			} catch (IndexOutOfBoundsException | IllegalArgumentException  ex) {
+			} catch (IndexOutOfBoundsException | IllegalArgumentException ex) {
 				System.out.println("You have entered an invalid number.  Please choose from 1-20.");
 				continue;
 			} catch (InputMismatchException ex) {
@@ -40,7 +40,7 @@ public class Lab7 {
 			}
 			scanner.nextLine();
 			while (true) {
-				System.out.println("What would you like to know this person? (Hometown or favorite food)");
+				System.out.println("What would you like to learn about this person? (Hometown or favorite food)");
 				answer = scanner.nextLine();
 				if (answer.equalsIgnoreCase("hometown")) {
 					System.out.println(name[studentIndex] + " is from " + hometown[studentIndex]);
@@ -53,20 +53,29 @@ public class Lab7 {
 				}
 
 			}
-
-			System.out.println("Do you want to choose another person?");
-			choice = scanner.next();
+			while (true) {
+				System.out.println("Do you want to choose another person? (y/n)");
+				choice = scanner.next();
+				if (choice.equalsIgnoreCase("y") || choice.equalsIgnoreCase("n")) {
+					break;
+				} else {
+					System.out.println("Invalid entry.  Enter a y or n");
+					continue;
+				}
+			}
 		}
 		scanner.close();
 		System.out.println("Goodbye.");
 	}
-	public static void listNames(String[] name){
+
+	public static void listNames(String[] name) {
 		for (int i = 0; i < name.length; i++) {
 			System.out.println(i + 1 + " " + name[i]);
 		}
-		
+
 		return;
 	}
 
 }
+
 

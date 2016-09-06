@@ -1,44 +1,29 @@
 import java.util.Scanner;
 
-public class Lab3 { // Start the Class
+public class Lab3 {
+	
+	public static void main(String[] args) {
 
-	public static void main(String[] args) {//Start the main method
-		// TODO Auto-generated method stub
-		//Program to find squares and colors 
-		
-		Scanner scanner = new Scanner(System.in);
-		int lastNumber;
-		String choice = "y";
-		do{
-			System.out.println("Enter an integer");
-			lastNumber = scanner.nextInt();
-			for(int i = 1 ; i < lastNumber; i++){
-			System.out.println("Number" + "\t" + "square"
-			+ "\t" + "cube");
-			System.out.println("======");
-			int square= calculateSquare(i);
-			int cube = i * i* i ;
-			System.out.println(i +  "\t" + square + "\t"
-			+ cube);
-			}
-			System.out.println("Continue?(y/n):");
-			choice=scanner.next();
-			System.out.println();
-		} // Ends do
-		while(choice.equalsIgnoreCase("y")){
-					}
+        
+        Scanner scanner = new Scanner (System.in);
+        
+        String Green = "y";
+        
+        while (Green.equalsIgnoreCase("y")){
+            System.out.println("Learn your squares and cubes!");
+            System.out.println("Enter an integer:__");
+            int Number = scanner.nextInt();
+            
+            System.out.println("Number\tSquared\tCubed");
+            System.out.println("=======\t=======\t======");
+            for (int i = 1; i <= Number; i++){
+            
+            System.out.println(i + "\t" + Math.pow(i,  2) +  "\t" + Math.pow(i,  3));
+            }
+            System.out.println("Continue? (y/n):");
+            Green = scanner.next();
+        }
+        scanner.close();
+    }
 
-	public static void outputLineForNumber(int number) {
-		int square = calculateSquare(number);
-		int cube = calculateCube(number);
-	}
-
-	public static int calculateSquare(int number) {
-		return number * number;
-
-	}
-
-	public static int calculateCube(int number){
-			return number * number * number;
 }
-	}
